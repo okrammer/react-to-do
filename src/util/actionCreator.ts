@@ -1,17 +1,15 @@
-
 export function actionCreator<P extends {}>(type: string): ActionCreator<P> {
     return new ActionCreator<P>(type);
 }
 
 
+export class ActionCreator<P extends {}> {
 
-export class ActionCreator<P extends {}>{
-
-    constructor(private readonly type: string){
+    constructor(private readonly type: string) {
 
     }
 
-    create(props: P): Action<P>{
+    create(props: P): Action<P> {
         return {
             type: this.type,
             ...props
@@ -24,4 +22,4 @@ export class ActionCreator<P extends {}>{
 
 }
 
-export type Action <P> = {type: string} & P
+export type Action<P> = { type: string } & P

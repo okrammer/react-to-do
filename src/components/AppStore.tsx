@@ -2,18 +2,13 @@ import React, {useEffect, useReducer} from 'react';
 import '../App.css';
 import {State} from '../model/State';
 import {AppLayout} from './AppLayout';
-import {
-    StartupAction,
-    ToDoAddedAction,
-    ToDoDoneAction,
-    ToDoFilterAction,
-    ToDoRemoveAction
-} from './reducer/toDoActions';
-import {rootReducer} from './reducer/mainReducer';
+import {StartupAction, ToDoAddedAction, ToDoDoneAction, ToDoFilterAction, ToDoRemoveAction} from './reducer/actions';
+import {rootReducer} from './reducer/rootReducer';
+import {Storage} from '../util/Storage';
 
 export function AppStore() {
 
-    const [state, dispatch] = useReducer(rootReducer, new State());
+    const [state, dispatch] = useReducer(rootReducer, Storage.load() || {} as State);
 
     useEffect(() => {
         console.log('dispatching StartupAction');
@@ -29,8 +24,8 @@ export function AppStore() {
     const onToDoDone = (toDoId: string, done: boolean) =>
         dispatch(ToDoDoneAction.create({toDoId, done}));
 
-    const onDoneFilter = (doneFilter: boolean | undefined) =>
-        dispatch(ToDoFilterAction.create({doneFilter}));
+    const onDoneFilter = (doneFilterName: string) =>
+        dispatch(ToDoFilterAction.create({doneFilterName}));
 
 
     return (
@@ -40,8 +35,9 @@ export function AppStore() {
                 onToDoAdded,
                 onToDoRemoved,
                 onDoneFilter,
-                toDos: state.toDoList,
-                persons: state.personList
+                toDos: state.toDoList || [],
+                persons: state.personList || [],
+                doneFilterName: state.doneFilterName
             }}
         />
     )

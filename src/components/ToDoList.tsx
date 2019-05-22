@@ -2,20 +2,16 @@ import React, {ChangeEvent} from 'react';
 import {ToDo} from '../model/ToDo';
 import {Person} from '../model/Person';
 import {JSX} from '@babel/types';
+import {doneFilterValues} from '../model/DoneFilter';
 
-const defaultFilterValue = 'UNFILTERED';
-const doneFilterValues: { [key: string]: { label: string, value: boolean | undefined } } = {
-    [defaultFilterValue]: {label: 'Filter by', value: undefined},
-    FILTER_DONE: {label: 'Done', value: true},
-    FILTER_NOT_DONE: {label: 'Not Done', value: false},
-};
 
 export interface ToDoListProp {
     toDos: ReadonlyArray<ToDo>;
     persons: ReadonlyArray<Person>;
+    doneFilterName: string;
     onToDoRemoved: (todoId: string) => void
     onToDoDone: (todoId: string, done: boolean) => void
-    onDoneFilter: (doneFilter: boolean | undefined) => void
+    onDoneFilter: (doneFilter: string) => void
 }
 
 export function ToDoList(props: ToDoListProp): JSX.Element {
@@ -25,7 +21,7 @@ export function ToDoList(props: ToDoListProp): JSX.Element {
     };
 
     const onDoneFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        props.onDoneFilter(doneFilterValues[e.target.value].value);
+        props.onDoneFilter(e.target.value);
     };
 
     const renderTodo = (toDo: ToDo) => {
@@ -56,10 +52,10 @@ export function ToDoList(props: ToDoListProp): JSX.Element {
                 <td/>
                 <td/>
                 <td>
-                    <select onChange={onDoneFilterChange}>
+                    <select value={props.doneFilterName} onChange={onDoneFilterChange}>
                         {
-                            Object.keys(doneFilterValues).map(key =>
-                                <option key={key} value={key}>{doneFilterValues[key].label}</option>
+                            doneFilterValues.map(filterValue =>
+                                <option key={filterValue.name} value={filterValue.name}>{filterValue.label}</option>
                             )
                         }
                     </select>
@@ -68,10 +64,7 @@ export function ToDoList(props: ToDoListProp): JSX.Element {
             </tr>
             </thead>
             <tbody>
-            {
-                props.toDos
-                    .map(renderTodo)
-            }
+            { props.toDos.map(renderTodo) }
             </tbody>
         </table>
     );

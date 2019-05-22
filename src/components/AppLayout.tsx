@@ -6,12 +6,15 @@ import {ToDoForm} from './ToDoForm';
 import {ToDoList} from './ToDoList';
 
 export interface AppLayoutProps {
+    toDos: ReadonlyArray<ToDo>;
+    persons: ReadonlyArray<Person>;
+    doneFilterName: string;
+
+
     onToDoAdded: (description: string, personId: string) => void
     onToDoRemoved: (id: string) => void
     onToDoDone: (todoId: string, done: boolean) => void
-    onDoneFilter: (doneFilter: boolean | undefined) => void
-    toDos: ReadonlyArray<ToDo>;
-    persons: ReadonlyArray<Person>;
+    onDoneFilter: (doneFilterName: string) => void
 }
 
 export function AppLayout(props: AppLayoutProps) {
@@ -27,8 +30,6 @@ export function AppLayout(props: AppLayoutProps) {
                         <ToDoList {...props}/>
                     </div>
                 </div>
-
-
             </div>
         </section>
     )

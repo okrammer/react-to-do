@@ -6,7 +6,8 @@ interface ClassDictionary {
 
 type ClassValue = string | number | ClassDictionary | ClassArray | undefined | null | boolean;
 
-interface ClassArray extends Array<ClassValue> { } // tslint:disable-line no-empty-interface
+interface ClassArray extends Array<ClassValue> {
+} // tslint:disable-line no-empty-interface
 
 export function classNames(arg: ClassValue): string {
     return originalClassNames(arg);
