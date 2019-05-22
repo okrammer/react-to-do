@@ -1,11 +1,10 @@
 import React, {ChangeEvent} from 'react';
 import {ToDo} from '../model/ToDo';
 import {Person} from '../model/Person';
-import {JSX} from '@babel/types';
 import {doneFilterValues} from '../model/DoneFilter';
 
 
-export interface ToDoListProp {
+interface Props {
     toDos: ReadonlyArray<ToDo>;
     persons: ReadonlyArray<Person>;
     doneFilterName: string;
@@ -14,7 +13,7 @@ export interface ToDoListProp {
     onDoneFilter: (doneFilter: string) => void
 }
 
-export function ToDoList(props: ToDoListProp): JSX.Element {
+export const ToDoList: React.FC<Props> = (props) => {
 
     const onDoneFor = (toDo: ToDo) => (e: ChangeEvent<HTMLInputElement>) => {
         props.onToDoDone(toDo.id, e.target.checked)
@@ -64,7 +63,7 @@ export function ToDoList(props: ToDoListProp): JSX.Element {
             </tr>
             </thead>
             <tbody>
-            { props.toDos.map(renderTodo) }
+            {props.toDos.map(renderTodo)}
             </tbody>
         </table>
     );

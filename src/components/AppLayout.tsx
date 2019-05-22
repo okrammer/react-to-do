@@ -5,7 +5,7 @@ import {Person} from '../model/Person';
 import {ToDoForm} from './ToDoForm';
 import {ToDoList} from './ToDoList';
 
-export interface AppLayoutProps {
+export interface Props {
     toDos: ReadonlyArray<ToDo>;
     persons: ReadonlyArray<Person>;
     doneFilterName: string;
@@ -17,7 +17,7 @@ export interface AppLayoutProps {
     onDoneFilter: (doneFilterName: string) => void
 }
 
-export function AppLayout(props: AppLayoutProps) {
+export const AppLayout = (props: Props) => {
     return (
         <section className="section">
             <div className="container">

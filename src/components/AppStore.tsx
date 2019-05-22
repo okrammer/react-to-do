@@ -6,7 +6,7 @@ import {StartupAction, ToDoAddedAction, ToDoDoneAction, ToDoFilterAction, ToDoRe
 import {rootReducer} from './reducer/rootReducer';
 import {Storage} from '../util/Storage';
 
-export function AppStore() {
+export const AppStore: React.FC<undefined> = () => {
 
     const [state, dispatch] = useReducer(rootReducer, Storage.load() || {} as State);
 

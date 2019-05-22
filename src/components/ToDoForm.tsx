@@ -5,7 +5,7 @@ import {BControl} from './bulma/BControl';
 import {Person} from '../model/Person';
 import {Errors} from '../util/Errors';
 
-export interface NameInputProps {
+interface Props {
     onToDoAdded: (description: string, personId: string) => void
     persons: ReadonlyArray<Person>;
 }
@@ -23,9 +23,9 @@ const defaultState: State = {
 };
 
 @boundClass
-export class ToDoForm extends Component<NameInputProps, State, {}> {
+export class ToDoForm extends Component<Props, State, {}> {
 
-    constructor(props: Readonly<NameInputProps>) {
+    constructor(props: Readonly<Props>) {
         super(props);
         this.state = defaultState;
     }
