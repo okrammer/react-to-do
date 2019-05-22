@@ -1,7 +1,7 @@
 import {ReactNodeLike} from 'prop-types';
 import React from 'react';
 import {BIcon} from './BIcon';
-import {classNames} from '../util/classNames';
+import {classNames} from '../../util/classNames';
 import {BHelpMessage} from './BHelpMessage';
 
 export interface BControlProps {

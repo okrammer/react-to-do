@@ -1270,6 +1270,11 @@
   dependencies:
     "@types/jest-diff" "*"
 
+"@types/lodash@^4.14.130":
+  version "4.14.130"
+  resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/@types/lodash/-/lodash-4.14.130.tgz?dl=https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.130.tgz#04b3a690d5f4fc34579963c99adae067b8c8eb5a"
+  integrity sha1-BLOmkNX0/DRXmWPJmtrgZ7jI61o=
+
 "@types/node@*":
   version "12.0.0"
   resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/@types/node/-/node-12.0.0.tgz?dl=https://registry.yarnpkg.com/@types/node/-/node-12.0.0.tgz#d11813b9c0ff8aaca29f04cbc12817f4c7d656e5"
@@ -1309,6 +1314,13 @@
   version "2.0.3"
   resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/@types/unist/-/unist-2.0.3.tgz?dl=https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha1-nAiGeYdvN061mD8VDUeHqm+zLX4=
+
+"@types/uuid@^3.4.4":
+  version "3.4.4"
+  resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/@types/uuid/-/uuid-3.4.4.tgz?dl=https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.4.tgz#7af69360fa65ef0decb41fd150bf4ca5c0cefdf5"
+  integrity sha1-evaTYPpl7w3stB/RUL9MpcDO/fU=
+  dependencies:
+    "@types/node" "*"
 
 "@types/vfile-message@*":
   version "1.0.1"
@@ -4784,6 +4796,11 @@ immer@1.10.0:
   version "1.10.0"
   resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/immer/-/immer-1.10.0.tgz?dl=https://registry.yarnpkg.com/immer/-/immer-1.10.0.tgz#bad67605ba9c810275d91e1c2a47d4582e98286d"
   integrity sha1-utZ2BbqcgQJ12R4cKkfUWC6YKG0=
+
+immer@^3.1.2:
+  version "3.1.2"
+  resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/immer/-/immer-3.1.2.tgz?dl=https://registry.yarnpkg.com/immer/-/immer-3.1.2.tgz#1f24f2e25433f5ff168a1ff6c8c6366d2106e61a"
+  integrity sha1-HyTy4lQz9f8Wih/2yMY2bSEG5ho=
 
 import-cwd@^2.0.0:
   version "2.1.0"

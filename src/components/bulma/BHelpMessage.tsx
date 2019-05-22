@@ -1,5 +1,5 @@
 import React from 'react';
-import {classNames} from '../util/classNames';
+import {classNames} from '../../util/classNames';
 
 export function BHelpMessage({message, type}: { message: string, type: 'danger' }): JSX.Element {
     const className = classNames({

@@ -5,17 +5,22 @@
   "dependencies": {
     "@types/classnames": "2.2.6",
     "@types/jest": "^24.0.12",
+    "@types/lodash": "^4.14.130",
     "@types/react": "^16.8.16",
     "@types/react-dom": "^16.8.4",
+    "@types/uuid": "^3.4.4",
     "autobind-decorator": "^2.4.0",
     "bulma": "^0.7.4",
     "bulmaswatch": "^0.7.2",
     "classnames": "2.2.6",
+    "immer": "^3.1.2",
+    "lodash": "^4.17.11",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
-    "typescript": "^3.4.5"
+    "typescript": "^3.4.5",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {classNames} from '../util/classNames';
+import {classNames} from '../../util/classNames';
 
-export class BIcon extends React.Component<{align: 'left' | 'right'; icon: string;}, {}, {}> {
+export class BIcon extends React.Component<{ align: 'left' | 'right'; icon: string; }, {}, {}> {
 
     static readonly displayName = 'BIcon';
 
