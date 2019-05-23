@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import * as serviceWorker from './serviceWorker';
 import {AppStore} from './components/AppStore';
+import {StateInspector} from 'reinspect';
 
-ReactDOM.render(<AppStore/>, document.getElementById('root'));
+ReactDOM.render(
+    <StateInspector name="ToDoApp">
+        <AppStore/>
+    </StateInspector>,
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

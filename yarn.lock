@@ -8377,6 +8377,14 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
+redux@^4.0.1:
+  version "4.0.1"
+  resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/redux/-/redux-4.0.1.tgz?dl=https://registry.yarnpkg.com/redux/-/redux-4.0.1.tgz#436cae6cc40fbe4727689d7c8fae44808f1bfef5"
+  integrity sha1-Q2yubMQPvkcnaJ18j65EgI8b/vU=
+  dependencies:
+    loose-envify "^1.4.0"
+    symbol-observable "^1.2.0"
+
 regenerate-unicode-properties@^8.0.2:
   version "8.0.2"
   resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/regenerate-unicode-properties/-/regenerate-unicode-properties-8.0.2.tgz?dl=https://registry.yarnpkg.com/regenerate-unicode-properties/-/regenerate-unicode-properties-8.0.2.tgz#7b38faa296252376d363558cfbda90c9ce709662"
@@ -8456,6 +8464,13 @@ rehype-parse@^6.0.0:
     hast-util-from-parse5 "^5.0.0"
     parse5 "^5.0.0"
     xtend "^4.0.1"
+
+reinspect@^1.0.1:
+  version "1.0.1"
+  resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/reinspect/-/reinspect-1.0.1.tgz?dl=https://registry.yarnpkg.com/reinspect/-/reinspect-1.0.1.tgz#49948455fb1cafdf8878ca552c609e0bff746ff8"
+  integrity sha1-SZSEVfscr9+IeMpVLGCeC/90b/g=
+  dependencies:
+    redux "^4.0.1"
 
 relateurl@0.2.x:
   version "0.2.7"
@@ -9398,6 +9413,11 @@ svgo@^1.0.0, svgo@^1.2.1:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "https://artifactory.tools.msi.audi.com/artifactory/api/npm/abimobility-npm-registry/symbol-observable/-/symbol-observable-1.2.0.tgz?dl=https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
 
 symbol-tree@^3.2.2:
   version "3.2.2"

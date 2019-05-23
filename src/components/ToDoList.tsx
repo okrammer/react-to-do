@@ -2,35 +2,37 @@ import React, {ChangeEvent} from 'react';
 import {ToDo} from '../model/ToDo';
 import {Person} from '../model/Person';
 import {doneFilterValues} from '../model/DoneFilter';
+import {Action} from '../util/actionCreator';
+import {ToDoDoneAction, ToDoFilterAction, ToDoRemoveAction} from './reducer/actions';
 
 
 interface Props {
     toDos: ReadonlyArray<ToDo>;
     persons: ReadonlyArray<Person>;
     doneFilterName: string;
-    onToDoRemoved: (todoId: string) => void
-    onToDoDone: (todoId: string, done: boolean) => void
-    onDoneFilter: (doneFilter: string) => void
+    dispatch: (action: Action<any>)=>void;
 }
 
-export const ToDoList: React.FC<Props> = (props) => {
+export const ToDoList: React.FC<Props> = ({dispatch, toDos, persons, doneFilterName}) => {
 
     const onDoneFor = (toDo: ToDo) => (e: ChangeEvent<HTMLInputElement>) => {
-        props.onToDoDone(toDo.id, e.target.checked)
+        dispatch(ToDoDoneAction.create({toDoId: toDo.id, done: e.target.checked}));
     };
 
     const onDoneFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        props.onDoneFilter(e.target.value);
+        dispatch(ToDoFilterAction.create({doneFilterName: e.target.value}));
     };
 
+    const onToDoRemovedFor = (toDo: ToDo) => () => dispatch(ToDoRemoveAction.create({toDoId: toDo.id}));
+
     const renderTodo = (toDo: ToDo) => {
-        const person = props.persons.find(person => person.id === toDo.personId);
+        const person = persons.find(person => person.id === toDo.personId);
         return <tr key={toDo.id}>
             <td style={{background: person ? person.color : '#CCCCCC'}}>{person && person.name}</td>
             <td>{toDo.description}</td>
             <td><input type="checkbox" checked={toDo.done} onChange={onDoneFor(toDo)}/></td>
             <td style={{'width': '20%'}}>
-                <button onClick={() => props.onToDoRemoved(toDo.id)}>remove</button>
+                <button onClick={onToDoRemovedFor(toDo)}>remove</button>
             </td>
         </tr>
     };
@@ -51,7 +53,7 @@ export const ToDoList: React.FC<Props> = (props) => {
                 <td/>
                 <td/>
                 <td>
-                    <select value={props.doneFilterName} onChange={onDoneFilterChange}>
+                    <select value={doneFilterName} onChange={onDoneFilterChange}>
                         {
                             doneFilterValues.map(filterValue =>
                                 <option key={filterValue.name} value={filterValue.name}>{filterValue.label}</option>
@@ -63,7 +65,7 @@ export const ToDoList: React.FC<Props> = (props) => {
             </tr>
             </thead>
             <tbody>
-            {props.toDos.map(renderTodo)}
+            {toDos.map(renderTodo)}
             </tbody>
         </table>
     );

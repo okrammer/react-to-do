@@ -1,33 +1,31 @@
 import React from 'react';
 import '../App.css';
-import {ToDo} from '../model/ToDo';
-import {Person} from '../model/Person';
 import {ToDoForm} from './ToDoForm';
 import {ToDoList} from './ToDoList';
+import {Action} from '../util/actionCreator';
+import {State} from '../model/State';
 
 export interface Props {
-    toDos: ReadonlyArray<ToDo>;
-    persons: ReadonlyArray<Person>;
-    doneFilterName: string;
-
-
-    onToDoAdded: (description: string, personId: string) => void
-    onToDoRemoved: (id: string) => void
-    onToDoDone: (todoId: string, done: boolean) => void
-    onDoneFilter: (doneFilterName: string) => void
+    state: State,
+    dispatch: (action: Action<any>) => void
 }
 
-export const AppLayout = (props: Props) => {
+export const AppLayout:React.FC<Props> = ({dispatch, state}) => {
     return (
         <section className="section">
             <div className="container">
                 <h1 className="title">Name List</h1>
                 <div className="columns">
                     <div className="column is-one-third">
-                        <ToDoForm {...props}/>
+                        <ToDoForm persons={state.personList} dispatch={dispatch}/>
                     </div>
                     <div className="column  is-one-third">
-                        <ToDoList {...props}/>
+                        <ToDoList
+                            persons={state.personList}
+                            toDos={state.toDoList}
+                            doneFilterName={state.doneFilterName}
+                            dispatch={dispatch}
+                        />
                     </div>
                 </div>
             </div>
